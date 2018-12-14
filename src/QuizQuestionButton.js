@@ -3,13 +3,18 @@ import React, { Component } from 'react';
 class QuizQuestionButton extends Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.props.clickHandler(this.props.button_text);
     }
 
     render() {
         return (
-            <li>
-                <button>{this.props.button_text}</button>
-            </li>
+            <li key={this.props.btnKey}>
+                <button onClick={this.handleClick}> {this.props.button_text}</button>
+            </li >
         );
     }
 }
